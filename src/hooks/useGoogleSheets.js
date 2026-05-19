@@ -35,7 +35,7 @@ function enrichFallback(students) {
     diploma: null,
     teachersComment: null,
     teacherLastInteraction: null,
-    avatarUrl: `/avatars/avatar${(Array.from(s.name).reduce((a,c)=>a+c.charCodeAt(0),0)%5)+1}.png`,
+    avatarUrl: `${import.meta.env.BASE_URL}avatars/avatar${(Array.from(s.name).reduce((a,c)=>a+c.charCodeAt(0),0)%5)+1}.png`,
   }))
 }
 

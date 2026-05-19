@@ -1,11 +1,6 @@
 // Avatar photos saved locally from the KidsVentors Google Drive folder (removebg PNGs)
-const AVATAR_FILES = [
-  '/avatars/avatar1.png',
-  '/avatars/avatar2.png',
-  '/avatars/avatar3.png',
-  '/avatars/avatar4.png',
-  '/avatars/avatar5.png',
-]
+const BASE = import.meta.env.BASE_URL
+const AVATAR_FILES = Array.from({ length: 5 }, (_, i) => `${BASE}avatars/avatar${i + 1}.png`)
 
 export function getAvatarUrl(name) {
   const hash = Array.from(name).reduce((acc, c) => acc + c.charCodeAt(0), 0)
