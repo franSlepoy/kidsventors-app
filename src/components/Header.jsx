@@ -54,7 +54,8 @@ export default function Header({ loading, onRefresh, presentCount, totalCount, u
           onClick={onToggleTheme}
           title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
         >
-          {theme === 'dark' ? '☀️ Claro' : '🌙 Oscuro'}
+          <span className="btn-icon">{theme === 'dark' ? '☀️' : '🌙'}</span>
+          <span className="btn-label">{theme === 'dark' ? 'Claro' : 'Oscuro'}</span>
         </button>
         <button
           className={`refresh-btn ${loading ? 'loading' : ''}`}
@@ -62,8 +63,8 @@ export default function Header({ loading, onRefresh, presentCount, totalCount, u
           disabled={loading}
           title="Actualizar datos"
         >
-          <span className={loading ? 'spin' : ''}>↻</span>
-          {loading ? 'Cargando...' : 'Actualizar'}
+          <span className={`btn-icon${loading ? ' spin' : ''}`}>↻</span>
+          <span className="btn-label">{loading ? 'Cargando…' : 'Actualizar'}</span>
         </button>
       </div>
     </motion.header>

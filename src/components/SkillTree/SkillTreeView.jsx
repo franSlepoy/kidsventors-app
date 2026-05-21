@@ -649,8 +649,15 @@ export default function SkillTreeView({ student, onClose }) {
           </svg>
         </div>
 
-        {/* Side panel */}
-        <div className="tree-panel-col">
+        {/* Mobile backdrop — closes panel on tap */}
+        {selectedNode && (
+          <div className="tree-panel-backdrop" onClick={() => setSelectedNode(null)} />
+        )}
+
+        {/* Side panel / mobile bottom-sheet */}
+        <div className={`tree-panel-col${selectedNode ? ' panel-open' : ''}`}>
+          {/* Drag handle (mobile only) */}
+          <div className="tree-panel-handle" />
           <AnimatePresence mode="wait">
             {selectedNode ? (
               <NodePanel
